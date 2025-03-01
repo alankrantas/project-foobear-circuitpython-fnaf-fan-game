@@ -38,13 +38,13 @@ Floor plan
 Note:
 
 - You cannot leave the control room. Stay alive until 6:00 AM.
-- The lines in the floor plan indicate passage (the robot can move across).
+- The control has a door to room 8, connects to the air vent, and has a mesh window to room 6 (you may hear things moving in there if any).
+- The lines in the floor plan indicate passage, in which the robot can move from room to room or the air vent.
 - If the robot enters the control room, you die (game over).
 - Use switch buttons to move focus to different rooms.
   - If SCAN shows up, press button 1 (leftmost top button) to scan the room. All rooms except the control room and air vent have scanners.
   - If a non-SCAN function shows, you can activate it (press button 3 or the rightmost top button).
   - You cannot activate a function if it's recharging (in cooldown).
-- Listen for movements.
 
 <details>
   <summary>Additional hints</summary>
