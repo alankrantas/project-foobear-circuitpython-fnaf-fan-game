@@ -83,6 +83,8 @@ You may try to migrate this game to other platforms with the display and buttons
 
 ### Audio Output Wiring
 
+![pinout](https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game/blob/main/WioT-Pinout.jpg)
+
 Connect the DAC0 pin (pin 11 on Wio Terminal) and any GND pin (for example, pin 9) to a speaker or 3.5mm jack.
 
 Personally I use a 3.5mm TRRS breakout board:
