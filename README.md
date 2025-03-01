@@ -73,6 +73,8 @@ Note:
 
 This game is design for a the Wio Terminal, which is basically a SAMD51 microcontroller with 4 MB flash, a built-in 320x240 ILI9341 TFT and several buttons.
 
+You may try to migrate this game to other platforms with the display and buttons attached, but bear in mind the text and audio files require almost 4 MB storage.
+
 ### Installation
 
 1. Connect the device to USB port and flash the [CircuitPython 9.x firmware](https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game/blob/main/adafruit-circuitpython-seeeduino_wio_terminal-en_US-9.2.4.uf2) to the device. ([Instruction](https://learn.adafruit.com/welcome-to-circuitpython/installing-circuitpython))
