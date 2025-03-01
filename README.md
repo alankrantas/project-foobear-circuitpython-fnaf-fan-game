@@ -25,11 +25,11 @@ Floor plan
 ```
 
 - 1: Demo Room (has a Bluetooth speaker)
-- 2: Dev Office
+- 2: Developers' Office
 - 3: Cafeteria
-- 4: Meeting
-- 5: Hallway
-- 6: Servers
+- 4: Meeting room
+- 5: Main hallway
+- 6: Server room
 - 7: Restroom
 - 8: Entrance
 - 9: Control room (where you are; the door can be locked)
