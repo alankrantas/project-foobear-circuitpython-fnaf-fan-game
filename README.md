@@ -77,7 +77,7 @@ This game is design for a the Wio Terminal, which is basically a SAMD51 microcon
 
 1. Connect the device to USB port and flash the [CircuitPython 9.x firmware](https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game/blob/main/adafruit-circuitpython-seeeduino_wio_terminal-en_US-9.2.4.uf2) to the device. ([Instruction](https://learn.adafruit.com/welcome-to-circuitpython/installing-circuitpython))
 2. After done, copy everything under `CIRCUITPY` to the `CIRCUITPY` drive representing the device storage.
-3. Preset reset again and the game should start loading and running.
+3. Press reset again and the game should start loading and running.
 
 ### Audio Output Wiring
 
