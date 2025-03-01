@@ -94,6 +94,12 @@ Personally I use a 3.5mm TRRS breakout board:
 
 And I add a potentiometer between DAC0 and TIP so that the volumn can be reduced for earphones.
 
+## About This Project
+
+This was conceived some years ago, with the primary coding completed in the summer of 2022. The original plan was to build a physical model control room in front of the Wio Terminal (which is the "tablet" you're using) - the serve-controlled door actually opens and closes, and the RGB LEDs shows scanner and zapper light, etc.
+
+In the end, I just couldn't find enough motivate to finish it; it's more difficult and simply not immersive enough. The code can run complete without all the external devices, and so I decided to leave it as it is.
+
 ## References
 
 Hardware/firmware/driver:
