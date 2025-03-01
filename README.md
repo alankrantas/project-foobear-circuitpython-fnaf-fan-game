@@ -1,4 +1,93 @@
-# Project Foobrar: A FNAF Fan Game on CircuitPython and Wio Terminal
+# PROJECT FOOBEAR: A FNAF Fan Game on CircuitPython and Wio Terminal
+
+`Documentation working in progress`
+
+## The Story
+
+You are a programmer intern working in a AI startup, which develops a humanoid robot, codenamed FOOBEAR.
+
+And you are ordered by your boss to stay up one night on watch, because apperently the security guy is sick. You also hear something about the robot would roam around after the middle of the night.
+
+The boss said: "Relax, it's not a big deal. Just don't let anyone enter the control room."
+
+How reassuring.
+
+### Rules
+
+```
+Floor plan
+1----2----3
+|    |    |
+4----5----6--|
+|    |       10
+7----8---[9]-|
+```
+
+- 1: Demo Room (has a Bluetooth speaker)
+- 2: Dev Office
+- 3: Cafeteria
+- 4: Meeting
+- 5: Hallway
+- 6: Servers
+- 7: Restroom
+- 8: Entrance
+- 9: Control room (where you are; the door can be locked)
+- 10: Air Vent (has a electric bug zapper)
+
+Note:
+
+- You cannot leave the control room. Stay alive until 6:00 AM.
+- The lines in the floor plan indicate passage (the robot can move across).
+- If the robot enters the control room, you die (game over).
+- Use switch buttons to move focus to different rooms.
+  - If SCAN shows up, press button 1 (leftmost top button) to scan the room. All rooms except the control room and air vent have scanners.
+  - If a non-SCAN function shows, you can activate it (press button 3 or the rightmost top button).
+  - You cannot activate a function if it's recharging (in cooldown).
+- Listen for movements.
+
+<details>
+  <summary>Additional hints</summary>
+
+- You might hear the robot when it's moving through room 5, 6 or 8 and the air vent.
+- The robot will get more aggresive to get to you with each hour passed. (Each hour takes ~50 seconds.)
+- The Bluetooth speaker distracts the robot - for most of the time.
+- The door keeps the robot out.
+- The air vent zapper also keeps the robot out and makes it run away.
+- All controllable devices have cooldown time and consumes power. If you use too much, it will overload the system and force reboot.
+- The robot will be more aggresive during the power outtage.
+
+</details>
+
+### Cheating Mode
+
+Enable `ANOMALY_ALWAYS_SHOWN` and/or `ANOMALY_ACTION_LOG` to `True`.
+
+`ANOMALY_ALWAYS_SHOWN` shows where the robot is, and `ANOMALY_ACTION_LOG` will print detailed game events in the console.
+
+## Run the Game
+
+### Hardware
+
+This game is design for a the Wio Terminal, which is basically a SAMD51 microcontroller with 4 MB flash, a built-in 320x240 ILI9341 TFT and several buttons.
+
+### Installation
+
+1. Connect the device to USB port and flash the [CircuitPython 9.x firmware](https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game/blob/main/adafruit-circuitpython-seeeduino_wio_terminal-en_US-9.2.4.uf2) to the device. ([Instruction](https://learn.adafruit.com/welcome-to-circuitpython/installing-circuitpython))
+2. After done, copy everything under `CIRCUITPY` to the `CIRCUITPY` drive representing the device storage.
+3. Preset reset again and the game should start loading and running.
+
+### Audio Output Wiring
+
+Connect the DAC0 pin (pin 11 on Wio Terminal) and any GND pin (for example, pin 9) to a speaker or 3.5mm jack.
+
+Personally I use a 3.5mm TRRS breakout board:
+
+| Wio Terminal Pin | Wire |
+| --- | --- |
+| 11 (DAC0) | TIP |
+| 9 (GND) | PING1 |
+
+And I add a potentiometer between DAC0 and TIP so that the volumn can be reduced for earphones.
 
 ## References
 
@@ -26,3 +115,4 @@ CircuitPython:
   - [audioio](https://docs.circuitpython.org/en/latest/shared-bindings/audioio/index.html)
   - [audiomixer](https://docs.circuitpython.org/en/latest/shared-bindings/audiomixer/index.html)
   - [Convert Sound Files in Audacity](https://learn.adafruit.com/microcontroller-compatible-audio-file-conversion)
+  - Audio files of [FNAF 1](https://downloads.khinsider.com/game-soundtracks/album/five-nights-at-freddy-s-fnaf) and [FNAF 2](https://downloads.khinsider.com/game-soundtracks/album/five-nights-at-freddy-s-fnaf-2-sfx)
