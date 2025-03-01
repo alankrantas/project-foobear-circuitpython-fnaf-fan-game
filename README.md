@@ -8,9 +8,9 @@ You are a programmer intern working in a AI startup, which develops a humanoid r
 
 And you are ordered by your boss to stay up one night on watch, because apperently the security guy is sick. You also hear something about the robot would roam around after midnight.
 
-The boss said: "Relax, it's not a big deal. Just don't let anyone enter the control room."
+The boss said: "Relax, it's not a big deal. Just don't let anyone or anything enter the control room."
 
-And when the clock hits 12:00 AM, you started to think maybe it is a mistake to stay after all.
+When the clock hits 12:00 AM, you started to feel that this will be the longest night of your life - or maybe the shortest one.
 
 ### Rules
 
@@ -49,21 +49,23 @@ Note:
 <details>
   <summary>Additional hints</summary>
 
-- You might hear the robot when it's moving through room 5, 6 or 8 and the air vent.
 - The robot will get more aggresive to get to you with each hour passed. (Each hour takes ~50 seconds.)
 - The Bluetooth speaker distracts the robot - for most of the time.
 - The door keeps the robot out.
-- The air vent zapper also keeps the robot out and makes it run away.
+- The air vent zapper also keeps the robot out.
 - All controllable devices have cooldown time and consumes power. If you use too much, it will overload the system and force reboot.
 - The robot will be more aggresive during the power outtage.
 
 </details>
 
-### Cheating Mode
+<details>
+  <summary>Even more hints!</summary>
 
-Enable `ANOMALY_ALWAYS_SHOWN` and/or `ANOMALY_ACTION_LOG` to `True`.
+- Enable `ANOMALY_ALWAYS_SHOWN` and/or `ANOMALY_ACTION_LOG` to `True` to cheat.
+- Being blocked by the door or zapped in the air vent may cause the robot to "run away" to the farthest corner for a short while.
+- You don't need to scan every room - just the room closest to the door and air vent. And listen to the sound clue.
 
-`ANOMALY_ALWAYS_SHOWN` shows where the robot is, and `ANOMALY_ACTION_LOG` will print detailed game events in the console.
+</details>
 
 ## Run the Game
 
