@@ -98,7 +98,9 @@ And I add a potentiometer between DAC0 and TIP so that the volumn can be reduced
 
 ## About This Project
 
-This was conceived some years ago, with the primary coding completed in the summer of 2022. The original plan was to build a physical model control room in front of the Wio Terminal (which is the "tablet" you're using) - the serve-controlled door actually opens and closes, and the RGB LEDs shows scanner and zapper light, etc.
+This was conceived some years ago, with the primary coding completed in the summer of 2022. Of course, I had to re-invent the game since it's not possible to copy all the game mechanics of FNAF 1 or 2. But the inspiron is still there. I can't help to "borrow" many of the FNAF sound effects as well.
+
+The original plan was to build a physical model control room in front of the Wio Terminal (which is the "tablet" you're using) - the serve-controlled door actually opens and closes, and the RGB LEDs shows scanner and zapper light, etc.
 
 In the end, I just couldn't find enough motivate to finish it; it's more difficult and simply not immersive enough. The code can run complete without all the external devices, and so I decided to leave it as it is.
 
