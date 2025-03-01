@@ -30,8 +30,8 @@ ANOMALY_NAME = 'FooBear'
 TITLE = f'Project\n{ANOMALY_NAME}'
 
 # for debugging or cheating purposes
-ANOMALY_ALWAYS_SHOWN = True
-ANOMALY_ACTION_LOG = True
+ANOMALY_ALWAYS_SHOWN = False
+ANOMALY_ACTION_LOG = False
 MEMORY_LOG = False
 ANOMALY_NOT_MOVING = False
 SKIP_TITLE_ANIMATION = False
