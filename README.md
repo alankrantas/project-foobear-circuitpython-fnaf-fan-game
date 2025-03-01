@@ -1,4 +1,4 @@
-# Project Foobrar: a FNAF fan game built with CircuitPython and run on Wio Terminal
+# Project Foobrar: A FNAF Fan Game on CircuitPython and Wio Terminal
 
 ## References
 
