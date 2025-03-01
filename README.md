@@ -8,9 +8,9 @@ You are a programmer intern working in a AI startup, which develops a humanoid r
 
 And you are ordered by your boss to stay up one night on watch, because apperently the security guy is sick. You also hear something about the robot would roam around after midnight.
 
-The boss said: "Relax, it's not a big deal. Just don't let anyone or anything enter the control room."
+The boss said: "Relax, it's not a big deal. We are debugging that thing, nothing to worry about. Just don't let anyone or anything enter the control room."
 
-When the clock hits 12:00 AM, you started to feel that this will be the longest night of your life - or maybe the shortest one.
+As the clock hits 12:00 AM, you started to feel that this will be the longest night of your life - or maybe the shortest one.
 
 ### Rules
 
