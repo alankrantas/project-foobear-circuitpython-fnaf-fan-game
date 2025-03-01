@@ -1,21 +1,22 @@
-# PROJECT FOOBEAR: A FNAF Fan Game on CircuitPython and Wio Terminal
+# Project Foobear: A FNAF Fan Game on CircuitPython and Wio Terminal
 
 `Documentation working in progress`
 
 ## The Story
 
-You are a programmer intern working in a AI startup, which develops a humanoid robot, codenamed FOOBEAR.
+You are a programmer intern working in a AI startup, which develops a humanoid robot, codenamed "Foobear".
 
-And you are ordered by your boss to stay up one night on watch, because apperently the security guy is sick. You also hear something about the robot would roam around after the middle of the night.
+And you are ordered by your boss to stay up one night on watch, because apperently the security guy is sick. You also hear something about the robot would roam around after midnight.
 
 The boss said: "Relax, it's not a big deal. Just don't let anyone enter the control room."
 
-How reassuring.
+And when the clock hits 12:00 AM, you started to think maybe it is a mistake to stay after all.
 
 ### Rules
 
 ```
 Floor plan
+
 1----2----3
 |    |    |
 4----5----6--|
