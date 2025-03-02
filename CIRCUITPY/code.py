@@ -88,7 +88,7 @@ BLACK = const(0x000000)
 9: Air Vent (has a electric bug zapper installed)
 
 b: Bluetooth speaker
-d: security door
+d: Security door
 w: Window
 z: bug zapper
 '''
