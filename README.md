@@ -24,20 +24,24 @@ As the clock hits 12:00 AM, you started to feel that this may be the longest nig
 6----7--d[8]-|
 ```
 
-- 0: Demo Room (has a Bluetooth speaker in there)
-- 1: Developers' Office
-- 2: Cafeteria
-- 3: Meeting room
-- 4: Main hallway
-- 5: Server room
-- 6: Restroom
-- 7: Lobby
-- 8: Control room (where you are; power usage is shown and the security door can be locked)
-- 9: Air Vent (has a electric bug zapper installed)
-- b: Bluetooth speaker
-- d: security door
-- w: Window
-- z: bug zapper
+| Label | Description |
+| --- | --- |
+| `0` | Demo Room (has a Bluetooth speaker in there) |
+| `1` | Developers' Office |
+| `2` | Cafeteria |
+| `3` | Meeting room |
+| `4` | Main hallway |
+| `5` | Server room |
+| `6` | Restroom |
+| `7` | Lobby |
+| `8` | Control room (where you are; power usage is shown and the security door can be locked) |
+| `9` | Air Vent (has a electric bug zapper installed) |
+| `b` | Bluetooth speaker |
+| `d` | Security door |
+| `w` | Window |
+| `x` | bug zapper |
+
+All rooms but control room and air vent has scanner installed.
 
 ### Rules
 
@@ -45,8 +49,8 @@ As the clock hits 12:00 AM, you started to feel that this may be the longest nig
 - The control room has a door to lobby, connects the air vent with the server room, and has a mesh window between it and the server room (so you may hear things moving in there if any).
 - The lines in the floor plan indicate passage, in which the robot can move from room to room or the air vent.
 - Use switch buttons to move focus to different rooms. The focused room will be highlighted.
-  - If `SCAN` shows up, you can scan the room with the scan button. If will tell you if the "anomaly" is currently in that room. All rooms except the control room and air vent have scanners.
-  - If a non-`SCAN` special action shows up, you can use it with the special action button.
+  - Use the scan button to scan "anomaly" in the focused room.
+  - If a non-`SCAN` special action is available, you can activate with the special action button.
   - You cannot activate a function if it's recharging (in cooldown).
 - The control room shows the current power load. Scan and special actions consume power for recharging. If you use too much power at a point, the system will shut down and undergo emergency reboot.
 
