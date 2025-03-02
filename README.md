@@ -17,23 +17,28 @@ As the clock hits 12:00 AM, you started to feel that this may be the longest nig
 ### Floor Plan
 
 ```
-1----2----3
+0(b)-1----2
 |    |    |
-4----5----6--|
-|    |       10
-7----8---[9]-|
-```
+3----4----5--|
+|    |    w  9(z)
+6----7--d[8]-|
 
-- 1: Demo Room (has a Bluetooth speaker in there)
-- 2: Developers' Office
-- 3: Cafeteria
-- 4: Meeting room
-- 5: Main hallway
-- 6: Server room
-- 7: Restroom
-- 8: Lobby
-- 9: Control room (where you are; the door can be locked)
-- 10: Air Vent (has a electric bug zapper installed)
+0: Demo Room (has a Bluetooth speaker in there)
+1: Developers' Office
+2: Cafeteria
+3: Meeting room
+4: Main hallway
+5: Server room
+6: Restroom
+7: Lobby
+8: Control room (where you are; power usage is shown and the security door can be locked)
+9: Air Vent (has a electric bug zapper installed)
+
+b: Bluetooth speaker
+d: security door
+w: Window
+z: bug zapper
+```
 
 ### Rules
 
