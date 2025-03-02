@@ -4,13 +4,15 @@
 
 ## The Story
 
-You are a programmer intern working in a AI startup, which develops a humanoid robot, codenamed "Foobear".
+You are a fresh programmer intern working in a AI startup, which develops an AI-powered humanoid robot, codenamed "Foobear". (Because, you know, "foo" and "bar".)
 
-And you are ordered by your boss to stay up one night on watch, because apperently the security guy is sick. You also hear something about the robot would roam around after midnight.
+And you are ordered to stay up one night, because apperently the security guy disappeared last night. There will be a big demo scheduled tomorrow, and the company cannot afford to have no one on watch.
 
-The boss said: "Relax, it's not a big deal. We are debugging that thing, nothing to worry about. Just don't let anyone or anything enter the control room."
+You also hear something about the robot may roam around the empty office after midnight.
 
-As the clock hits 12:00 AM, you started to feel that this will be the longest night of your life - or maybe the shortest one.
+The boss said: "Relax, we are debugging that thing, nothing to worry about. It's running some tests. Just don't let anyone enter the control room. You can lock yourself in if you want, but under any circumstances DO NOT overload the power system!"
+
+As the clock hits 12:00 AM, you started to feel that this may be the longest night of your life - or the shortest one.
 
 ### Floor Plan
 
@@ -22,7 +24,7 @@ As the clock hits 12:00 AM, you started to feel that this will be the longest ni
 7----8---[9]-|
 ```
 
-- 1: Demo Room (has a Bluetooth speaker)
+- 1: Demo Room (has a Bluetooth speaker in there)
 - 2: Developers' Office
 - 3: Cafeteria
 - 4: Meeting room
@@ -31,14 +33,13 @@ As the clock hits 12:00 AM, you started to feel that this will be the longest ni
 - 7: Restroom
 - 8: Entrance
 - 9: Control room (where you are; the door can be locked)
-- 10: Air Vent (has a electric bug zapper)
+- 10: Air Vent (has a electric bug zapper installed)
 
 ### Rules
 
-- You cannot leave the control room. Stay alive until 6:00 AM.
+- You cannot leave the control room, and the entrance is locked. Stay alive until 6:00 AM.
 - The control room has a door to entrance, connects the air vent with the server room, and has a mesh window between it and the server room (so you may hear things moving in there if any).
 - The lines in the floor plan indicate passage, in which the robot can move from room to room or the air vent.
-- If the robot enters the control room, you die (game over).
 - Use switch buttons to move focus to different rooms. The focused room will be highlighted.
   - If `SCAN` shows up, you can scan the room with the scan button. If will tell you if the "anomaly" is currently in that room. All rooms except the control room and air vent have scanners.
   - If a non-`SCAN` special action shows up, you can use it with the special action button.
@@ -48,7 +49,8 @@ As the clock hits 12:00 AM, you started to feel that this will be the longest ni
 <details>
   <summary>Additional hints</summary>
 
-- The robot will get more aggresive to get to you with each hour passed. (Each hour takes ~50 seconds.)
+- If the robot enters the control room, all of the controls will fail, then you die (game over).
+- The robot will get more aggresive to hunt you with each hour passed. (Each hour takes a bit more than 50 seconds.)
 - The Bluetooth speaker distracts the robot - for most of the time.
 - The door keeps the robot out, but keep the door closed will gradually increase power load.
 - The air vent zapper also keeps the robot out. This usually will scare the robot away for a while.
