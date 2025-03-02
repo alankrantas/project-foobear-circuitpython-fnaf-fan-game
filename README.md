@@ -1,16 +1,16 @@
 # Project Foobear: A FNAF Fan Game on CircuitPython and Wio Terminal
 
-> Documentation working in progress; photo and video to be added later.
+> Photo and video to be added later.
 
 ## The Story
 
-You are a fresh programmer intern working in a AI startup, which develops an AI-powered humanoid robot, codenamed "Foobear". (Because, you know, "foo" and "bar".)
+You are a fresh intern working in a AI startup, which develops an AI-powered humanoid robot, codenamed "Foobear". (Because, you know, "foo" and "bar".)
 
-And you are ordered to stay up one night, because apperently the security guy disappeared last night. There will be a big demo scheduled tomorrow, and the company cannot afford to have no one on watch.
+And you are ordered to stay up behind one night, because apperently the security guy disappeared last night. There will be a big demo scheduled tomorrow, and the company cannot afford to have no one on watch.
 
 You also hear something about the robot may roam around the empty office after midnight.
 
-The boss said: "Relax, we are debugging that thing, nothing to worry about. It's running some tests. Just don't let anyone enter the control room. You can lock yourself in if you want, but under any circumstances DO NOT overload the power system!"
+The boss said: "Relax, we are testing that thing, nothing to worry about. Reinforcement learning stuff. Just don't let anyone or anything enter the control room. You can lock yourself in if you want, but under any circumstances DO NOT overload the power system!"
 
 As the clock hits 12:00 AM, you started to feel that this may be the longest night of your life - or the shortest one.
 
@@ -130,7 +130,7 @@ And I add a potentiometer between `DAC0` and `TIP` so that the volumn can be red
 
 This FNAF ([_Five Nights at Freddy's_](https://en.wikipedia.org/wiki/Five_Nights_at_Freddy%27s)) fan game was conceived some years ago, with the primary coding completed between 2021 and 2022. The code, more than 1,000 lines long, is built around a complex synchronous process runtime in which I can add behaviors and control them in the ways and intervals I want.
 
-Of course, I had to re-invent the gameplay and rules since it's not possible to copy all the game mechanics of FNAF 1 or 2. But the inspiron is still there. I can't help to "borrow" many of the FNAF sound effects too (I did considered to use _Half Life_ sound effects). This game utilizes CircuitPython's audiomixer to play multiple audio files (including the background ambience sound) asynchronously, which works surprising well.
+Of course, I had to re-invent the gameplay and rules since it's not possible to recreate all the game mechanics of FNAF 1 or 2; but the inspiron is still there. I also can't help to "borrow" many of the FNAF sound effects (I did considered to use _Half Life_ sound effects). This game utilizes CircuitPython's audiomixer to play multiple audio files (including the background ambience sound) asynchronously, which works surprising well.
 
 ### What It Should Have Been
 
