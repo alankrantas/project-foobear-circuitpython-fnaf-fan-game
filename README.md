@@ -97,9 +97,9 @@ All rooms but control room and air vent has scanner installed.
 
 ### Hardware
 
-This game is design for a the [Wio Terminal](https://wiki.seeedstudio.com/Wio-Terminal-Getting-Started/), which is basically a SAMD51 microcontroller (which has 2 DAC pins to play audio) with 4 MB onboard flash, a built-in 320x240 ILI9341 TFT and several buttons.
+This game is design for a the [Wio Terminal](https://wiki.seeedstudio.com/Wio-Terminal-Getting-Started/), which is basically a SAMD51 microcontroller (which has DAC pins to play audio) with 512 KB RAM, 4 MB flash, a built-in 320x240 ILI9341 TFT and several buttons.
 
-You may try to migrate this game to other SAMD51 boards with the display and buttons attached, but bear in mind that the text and audio files require almost entire 4 MB storage.
+You may try to migrate this game to other SAMD51 boards with the display and buttons attached, but bear in mind that the code uses ~96% RAM and the text and audio files require ~3.7 MB storage.
 
 ### Installation
 
@@ -107,9 +107,9 @@ You may try to migrate this game to other SAMD51 boards with the display and but
 2. After done, copy everything under `CIRCUITPY` to the `CIRCUITPY` drive representing the device storage.
 3. Press reset again and the game should start loading and running.
 
-### Audio Output Wiring
+### Audio Output
 
-![pinout](https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game/blob/main/WioT-Pinout.jpg)
+**This game can be played without audio - but it will be less fun and harder to play.**
 
 Connect the DAC0 pin (pin 11 on Wio Terminal) and any GND pin (for example, pin 9) to a speaker or 3.5mm jack. Check CircuitPython's [instruction](https://learn.adafruit.com/circuitpython-essentials/circuitpython-audio-out) of how to connect a 3.5mm jack (ignore the button).
 
@@ -119,6 +119,8 @@ Personally I use a 3.5mm TRRS breakout board:
 | --- | --- |
 | 11 (DAC0) | TIP |
 | 9 (GND) | PING1 |
+
+![pinout](https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game/blob/main/WioT-Pinout.jpg)
 
 And I add a potentiometer between DAC0 and TIP so that the volumn can be reduced for earphones.
 
