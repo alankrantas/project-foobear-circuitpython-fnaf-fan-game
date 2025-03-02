@@ -90,7 +90,7 @@ BLACK = const(0x000000)
 b: Bluetooth speaker
 d: Security door
 w: Window
-z: bug zapper
+z: Bug zapper
 '''
 
 ROOM_NAMES = {
