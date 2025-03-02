@@ -39,7 +39,7 @@ As the clock hits 12:00 AM, you started to feel that this may be the longest nig
 | `b` | Bluetooth speaker |
 | `d` | Security door |
 | `w` | Window |
-| `x` | bug zapper |
+| `z` | Bug zapper |
 
 All rooms but control room and air vent has scanner installed.
 
