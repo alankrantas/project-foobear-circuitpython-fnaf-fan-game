@@ -62,11 +62,11 @@ BLACK = const(0x000000)
 
 # ===== game logic - rooms =====
 
-#    0s--1---2
-#    | c |   |
-#    3---4---5---|
-#    |   |   w   9z < AIR VENT
-#    6---7-d[8]--|
+#    0s---1----2
+#    |  c |    |
+#    3----4----5--|
+#    |    |    w  9z < AIR VENT
+#    6----7--d[8]-|
 #            ^
 #        TARGET ROOM
 #
@@ -84,7 +84,7 @@ ROOM_NAMES = {
     4: 'Hallway',
     5: 'Servers',
     6: 'Restroom',
-    7: 'Entrance',
+    7: 'Lobby',
     8: 'Control',  # target
     9: 'Air Vent'
 }
