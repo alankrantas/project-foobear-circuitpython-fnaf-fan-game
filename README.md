@@ -31,14 +31,14 @@ As the clock hits 12:00 AM, you started to feel that this may be the longest nig
 - 5: Main hallway
 - 6: Server room
 - 7: Restroom
-- 8: Entrance
+- 8: Lobby
 - 9: Control room (where you are; the door can be locked)
 - 10: Air Vent (has a electric bug zapper installed)
 
 ### Rules
 
-- You cannot leave the control room, and the entrance is locked. Stay alive until 6:00 AM.
-- The control room has a door to entrance, connects the air vent with the server room, and has a mesh window between it and the server room (so you may hear things moving in there if any).
+- You cannot leave the control room, and the company is locked down anyway. Stay alive until 6:00 AM.
+- The control room has a door to lobby, connects the air vent with the server room, and has a mesh window between it and the server room (so you may hear things moving in there if any).
 - The lines in the floor plan indicate passage, in which the robot can move from room to room or the air vent.
 - Use switch buttons to move focus to different rooms. The focused room will be highlighted.
   - If `SCAN` shows up, you can scan the room with the scan button. If will tell you if the "anomaly" is currently in that room. All rooms except the control room and air vent have scanners.
