@@ -4,13 +4,13 @@
 
 ## The Story
 
-You are a fresh intern working in a AI startup, which develops an AI-powered humanoid robot, codenamed "Foobear". (Because, you know, "foo" and "bar".)
+You are an intern working in a AI startup, which develops a humanoid robot codenamed "Foobear". (Because, you know, "foo" and "bar".)
 
-And you are ordered to stay up behind one night, because apperently the security guy disappeared last night. There will be a big demo scheduled tomorrow, and the company cannot afford to have no one on watch.
+And one day you are ordered to stay in the company for the night, because apperently the security guy disappeared previous day for no reason. A big demo is scheduled tomorrow, and the company cannot afford to have no one on watch.
 
 You also hear something about the robot may roam around the empty office after midnight.
 
-The boss said: "Relax, we are testing that thing, nothing to worry about. Reinforcement learning stuff. Just don't let anyone or anything enter the control room. You can lock yourself in if you want, but under any circumstances DO NOT overload the power system!"
+You asked the boss, and he said: "Relax, we are testing that thing. Reinforcement learning stuff, nothing to worry about. Just don't let anyone enter the control room. You can lock yourself in if you have to, but under _NO_ circumstances overload the power system!"
 
 As the clock hits 12:00 AM, you started to feel that this may be the longest night of your life - or the shortest one.
 
