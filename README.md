@@ -111,7 +111,7 @@ You may try to migrate this game to other SAMD51 boards with the display and but
 
 **This game can be played without audio - but it will be less fun and harder to play.**
 
-Connect the DAC0 pin (pin 11 on Wio Terminal) and any GND pin (for example, pin 9) to a speaker or 3.5mm jack. Check CircuitPython's [instruction](https://learn.adafruit.com/circuitpython-essentials/circuitpython-audio-out) of how to connect a 3.5mm jack (ignore the button).
+Connect the `DAC0` pin (pin 11 on Wio Terminal) and any `GND` pin (for example, pin 9) to a speaker or 3.5mm jack. Check CircuitPython's [instruction](https://learn.adafruit.com/circuitpython-essentials/circuitpython-audio-out) of how to connect a 3.5mm jack (ignore the button).
 
 Personally I use a 3.5mm TRRS breakout board:
 
@@ -122,7 +122,7 @@ Personally I use a 3.5mm TRRS breakout board:
 
 ![pinout](https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game/blob/main/WioT-Pinout.jpg)
 
-And I add a potentiometer between DAC0 and TIP so that the volumn can be reduced for earphones.
+And I add a potentiometer between `DAC0` and `TIP` so that the volumn can be reduced for earphones.
 
 ---
 
