@@ -1,3 +1,10 @@
+'''
+Project Foobear: A FNAF Fan Game on CircuitPython and Wio Terminal
+
+https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game
+'''
+
+
 # ===== import built-in modules =====
 
 import random, time, os, sys, gc
@@ -62,19 +69,29 @@ BLACK = const(0x000000)
 
 # ===== game logic - rooms =====
 
-#    0s---1----2
-#    |  c |    |
-#    3----4----5--|
-#    |    |    w  9z < AIR VENT
-#    6----7--d[8]-|
-#            ^
-#        TARGET ROOM
-#
-# s = bluetooth speaker (audio lure)
-# z = air vent bug zapper
-# w = window
-# d = security door
-# c = scanner (available for all rooms except target air vent and target)
+'''
+0(b)-1----2
+|    |    |
+3----4----5--|
+|    |    w  9(z)
+6----7--d[8]-|
+
+0: Demo Room (has a Bluetooth speaker in there)
+1: Developers' Office
+2: Cafeteria
+3: Meeting room
+4: Main hallway
+5: Server room
+6: Restroom
+7: Lobby
+8: Control room (where you are; power usage is shown and the security door can be locked)
+9: Air Vent (has a electric bug zapper installed)
+
+b: Bluetooth speaker
+d: security door
+w: Window
+z: bug zapper
+'''
 
 ROOM_NAMES = {
     0: 'Demo Room',
