@@ -153,9 +153,12 @@ But in the end, I just couldn't find enough motivattion and satisfaction to fini
 
 ## References and Resources
 
-- CircuitPython firmware/driver:
+CircuitPython
+
+- Firmware/driver:
   - [Seeeduino Wio Terminal (Circuit firmware)](https://circuitpython.org/board/seeeduino_wio_terminal/)
   - [Adafruit CircuitPython Library Bundle](https://github.com/adafruit/Adafruit_CircuitPython_Bundle)
+- General:
   - [Seeed Wio Terminal Circuitpython Modules](https://gist.github.com/stonehippo/03677c206bf68846328f151ee8322193)
   - [Buttons and Switch](https://learn.adafruit.com/sensor-plotting-with-mu-and-circuitpython/buttons-and-switch)
 - Display:
@@ -172,6 +175,7 @@ But in the end, I just couldn't find enough motivattion and satisfaction to fini
   - [audioio](https://docs.circuitpython.org/en/latest/shared-bindings/audioio/index.html)
   - [audiomixer](https://docs.circuitpython.org/en/latest/shared-bindings/audiomixer/index.html)
   - [Convert Sound Files in Audacity](https://learn.adafruit.com/microcontroller-compatible-audio-file-conversion)
-  - Audio files of [FNAF 1](https://downloads.khinsider.com/game-soundtracks/album/five-nights-at-freddy-s-fnaf) and [FNAF 2](https://downloads.khinsider.com/game-soundtracks/album/five-nights-at-freddy-s-fnaf-2-sfx)
 
-And thank you, Markiplier; I do not play scary games at all, but I watched all the FNAF videos from the very beginning.
+Audio files are from [FNAF 1](https://downloads.khinsider.com/game-soundtracks/album/five-nights-at-freddy-s-fnaf) and [FNAF 2](https://downloads.khinsider.com/game-soundtracks/album/five-nights-at-freddy-s-fnaf-2-sfx) with minor modifications. This project is not intended to be commercialized anyway.
+
+And lastly, thank you, Markiplier; I do not play scary games at all, but I watched all the FNAF videos from the very beginning. It was really fun indeed.
