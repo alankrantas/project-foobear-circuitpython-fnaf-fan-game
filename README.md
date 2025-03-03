@@ -47,12 +47,13 @@ All rooms but control room and air vent has scanner installed.
 
 - You cannot leave the control room nor the company. Stay alive until 6:00 AM. (Each hour is ~1 minute).
 - The control room has a door to lobby, connects the air vent with the server room, and has a mesh window between it and the server room (so you may hear things moving in there if any).
-- The lines in the floor plan indicate passage, in which the robot can move from room to room or the air vent.
+- The lines in the floor plan indicate passages, in which anyone can move from room to room.
+- Speaking of which, the air vent is also big enough to crawl through...
 - Use switch buttons to move focus to different rooms. The focused room will be highlighted.
   - Use the scan button to scan "anomaly" in the focused room.
   - If a non-`SCAN` special action is available, you can activate with the special action button.
   - You cannot activate a function if it's recharging (in cooldown).
-- The control room shows the current power load. Scan and special actions consume power for recharging. If you use too much power at a point, the system will shut down and undergo emergency reboot.
+- The right side of the control room icon shows the current power load. Scan and special actions consume power for recharging. If you cause too much power load at a point, the system will shut down and undergo emergency reboot. You will not to be able to see or do anything in the meantime...
 
 <details>
   <summary>Additional hints</summary>
