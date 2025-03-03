@@ -103,7 +103,7 @@ All rooms but control room and air vent has scanner installed.
 
 This game is design for a the [Wio Terminal](https://wiki.seeedstudio.com/Wio-Terminal-Getting-Started/), which is basically a SAMD51 microcontroller (which has DAC pins to play audio) with 512 KB RAM, 4 MB flash, a built-in 320x240 ILI9341 TFT and several buttons.
 
-You may try to migrate this game to other SAMD51 boards with the display and buttons attached, but bear in mind that the code uses ~96% RAM and the text and audio files require ~3.7 MB storage.
+You may try to migrate this game to other SAMD51 boards with the display and buttons attached, but bear in mind that the code uses ~80% RAM and the text and audio files require ~3.7 MB storage.
 
 ### Installation
 
