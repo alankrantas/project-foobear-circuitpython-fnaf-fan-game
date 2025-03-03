@@ -11,6 +11,10 @@ import random, time, os, sys, gc
 import board, digitalio, analogio, pwmio, displayio, audioio, audiocore, audiomixer
 from micropython import const
 
+gc.enable()
+gc.collect()
+print(f'Available memory (fresh start): {gc.mem_free()}')
+
 
 # ===== import external modules =====
 
@@ -25,10 +29,7 @@ try:
 except Exception as e:
     print(f'import library error: {e}')
     
-gc.enable()
-gc.collect()
-print(f'Available memory (fresh start): {gc.mem_free()}')
-
+print('Loading packages...ok')
 
 
 # ===== game logic - config =====
@@ -37,22 +38,19 @@ ANOMALY_NAME = 'FooBear'
 TITLE = f'Project\n{ANOMALY_NAME}'
 
 # for debugging or cheating purposes
-ANOMALY_ALWAYS_SHOWN = False
-ANOMALY_ACTION_LOG = False
-MEMORY_LOG = False
+ANOMALY_ALWAYS_SHOWN = True
+ANOMALY_ACTION_LOG = True
 ANOMALY_NOT_MOVING = False
 SKIP_TITLE_ANIMATION = False
 
-# game parameters
-AI_START_LEVEL = const(35)
-AI_FINAL_LEVEL = const(95)
+# game parameters (all interval and countdown time values are seconds * 10)
+AI_START_LEVEL = const(35)  # 1-100
+AI_FINAL_LEVEL = const(95)  # 1-100
 HOUR_INTERVAL = const(320)
 MOVE_INTERVAL = const(40)
 MOVE_MODE_RESET_CHANCE = const(40)
 MOVE_MODE_MORE_ACTIVE_CHANCE = const(20)
 LURED_CHANCE = const(80)
-LAUGH_SOUND_CHANCE = const(10)
-INTERIOR_LED_FLASH_CHANCE = const(5)
 SCAN_COOLDOWN = const(15)
 AUDIO_COOLDOWN = const(600)
 ZAP_COOLDOWN = const(160)
@@ -108,6 +106,7 @@ ROOM_NAMES = {
 
 RESET_ROOMS = (0, 1, 3)
 SCANNABLE_ROOMS = (0, 1, 2, 3, 4, 5, 6, 7)
+WALK_SOUND_ROOMS = (4, 5, 7)
 TARGET_ROOM = const(8)
 AIR_VENT_ROOM = const(9)
 AUDIO_ROOM = const(0)
@@ -116,7 +115,7 @@ WINDOW_ROOM = const(5)
 CENTER_ROOM = const(4)
 
 MOVE_PERF = {  # anamony's move mode
-    'Normal': {
+    'Normal': {  # roaming; not hunting
         0: (1, 3),
         1: (2, 4),
         2: (1, 5),
@@ -128,7 +127,7 @@ MOVE_PERF = {  # anamony's move mode
         8: [],
         9: (5, 8),
     },
-    'Door': {
+    'Door': {  # go to the door; hunting
         0: (3,),
         1: (4,),
         2: (1, 5),
@@ -140,7 +139,7 @@ MOVE_PERF = {  # anamony's move mode
         8: [],
         9: (5,),
     },
-    'Air Vent': {
+    'Air Vent': {  # go to the air vent: hunting
         0: (1, 3),
         1: (2, 4),
         2: (5,),
@@ -152,7 +151,7 @@ MOVE_PERF = {  # anamony's move mode
         8: [],
         9: (8,),
     },
-    'Escape': {
+    'Escape': {  # escape from being blocked
         0: (1, 3),
         1: (0,),
         2: (1,),
@@ -164,7 +163,7 @@ MOVE_PERF = {  # anamony's move mode
         8: [],
         9: (5,),
     },
-    'Lure': {
+    'Lure': {  # lured by audio
         0: [],
         1: (0,),
         2: (1,),
@@ -251,7 +250,7 @@ def detectKeyPress():
             invokeCallbackAndCountdown(item['action'])
             return
 
-print('Buttons configured')
+print('Configuring buttons...ok')
 
 
 # ===== font ===== https://github.com/Tecate/bitmap-fonts/tree/master/bitmap/terminus-font-4.39
@@ -263,7 +262,7 @@ except Exception as e:
     print(f'Font load error: {e}')
     sys.exit()
 
-print('Font loaded')
+print('Loading fonts...ok')
 
 
 
@@ -289,7 +288,7 @@ for filename in os.listdir('audio'):
         print(f'Audio load error: {e}')
         sys.exit()
         
-print('Audio library loaded')
+print('Loading audio library...ok')
 
 audio = audioio.AudioOut(pin_audio)
 mixer = audiomixer.Mixer(
@@ -311,7 +310,7 @@ def playBackgroundAudio():
     if not powerOut and not isVoicePlaying(VOICE_BACKGROUND):
         playAudio(VOICE_BACKGROUND, 'ambience')
 
-print('Audio mixer configured')
+print('Configuring audio mixer...ok')
 
 
 
@@ -589,7 +588,7 @@ splashMain.append(anomalyIcon)
 splashMain.append(anomalyLabel)
 splashMain.append(audioIcon)
 splashMain.append(zapIcon)
-print('Main screen layers loaded')
+print('Loading main screen layers...ok')
 
 def showIcon(icon):
     if icon == 'anomaly':
@@ -628,6 +627,7 @@ powerOutLabel = None
 
 def startMainScreenPowerOut():
     global splashTitle, powerOutLabel
+    print('Loading power out screen...')
     display.root_group = None
     splashTitle = None
     powerOutLabel = None
@@ -650,7 +650,7 @@ def startMainScreenPowerOut():
 
 def startTitleScreen():
     global splashTitle, firstTimeRunning
-    print('Starting title screen')
+    print('Loading title screen...')
     print(f'First time playing: {firstTimeRunning}')
     splashTitle = displayio.Group()
     labelTitle = Label(
@@ -773,7 +773,7 @@ def startTitleScreen():
 
 def startEndTitleScreen():
     global splashTitle
-    print('Start end title screen')
+    print('Loding end title screen...')
     time.sleep(1)
     splashTitle = displayio.Group()
     labelMsg = Label(
@@ -938,8 +938,6 @@ def resetCountDown(key, value=0):
 
 def GC():
     gc.collect()
-    if MEMORY_LOG:
-        print(f'Available memory: {gc.mem_free()}')
 
 def Hour():
     global hour, AI, gameStatus
@@ -981,13 +979,13 @@ def Move():
         playAudio(VOICE_ANOMALY_ACTION, 'walk')
         if ANOMALY_ACTION_LOG:
             print(f'Help me, Markimoo, you are my only hope... ({ANOMALY_NAME} has reached the target)')
-    elif anomalyRoom in (DOOR_ROOM, WINDOW_ROOM):
+    elif anomalyRoom in WALK_SOUND_ROOMS:
         playAudio(VOICE_ANOMALY_ACTION, 'walk')
         print(f'{ANOMALY_NAME} walking sound heard')
     elif anomalyRoom == AIR_VENT_ROOM:
         playAudio(VOICE_ANOMALY_ACTION, 'airvent')
         print(f'{ANOMALY_NAME} crawling in the air vent heard')
-    elif anomalyRoom in SCANNABLE_ROOMS and chance(LAUGH_SOUND_CHANCE if not powerOut else LAUGH_SOUND_CHANCE * 2):
+    elif anomalyRoom in SCANNABLE_ROOMS and moveMode in ('Door', 'Air Vent'):
         playAudio(VOICE_ANOMALY_LAUGH, f'laugh{random.randint(1, 2)}')
         print(f'{ANOMALY_NAME} laughing sound heard')
 
@@ -1266,10 +1264,9 @@ def resetGame():
     setHourLabel()
     
 
+# ===== runtime loop =====
 
-# ===== game loop =====
-
-print('Game logic loaded')
+print('Loading game logic and runtime...ok')
 firstTimeRunning = True
 gc.collect()
 print(f'Free memory (fully loaded): {gc.mem_free()}')
