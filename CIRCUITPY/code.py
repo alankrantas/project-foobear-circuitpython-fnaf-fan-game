@@ -13,7 +13,7 @@ from micropython import const
 
 gc.enable()
 gc.collect()
-print(f'Available memory (fresh start): {gc.mem_free()}')
+mem_limit = gc.mem_free()
 
 
 # ===== import external modules =====
@@ -44,12 +44,12 @@ ANOMALY_NOT_MOVING = False
 SKIP_TITLE_ANIMATION = False
 
 # game parameters (all interval and countdown time values are seconds * 10)
-AI_START_LEVEL = const(35)  # 1-100
+AI_START_LEVEL = const(5)  # 1-100
 AI_FINAL_LEVEL = const(95)  # 1-100
-HOUR_INTERVAL = const(320)
+HOUR_INTERVAL = const(600)
 MOVE_INTERVAL = const(40)
-MOVE_MODE_RESET_CHANCE = const(40)
-MOVE_MODE_MORE_ACTIVE_CHANCE = const(20)
+MOVE_MODE_RESET_CHANCE = const(25)
+MOVE_MODE_MORE_ACTIVE_CHANCE = const(50)
 LURED_CHANCE = const(80)
 SCAN_COOLDOWN = const(15)
 AUDIO_COOLDOWN = const(600)
@@ -62,7 +62,6 @@ ZAP_POWER_CHANGE_LEVEL = const(50)
 POWER_REBOOT_INTERNAL = const(160)
 WHITE = const(0xFFFFFF)
 BLACK = const(0x000000)
-
 
 
 # ===== game logic - rooms =====
@@ -121,11 +120,11 @@ MOVE_PERF = {  # anamony's move mode
         2: (1, 5),
         3: (4, 6),
         4: (3, 5, 7),
-        5: (4, 9),
+        5: (4,),
         6: (3, 7),
-        7: (4, 8),
+        7: (4,),
         8: [],
-        9: (5, 8),
+        9: (5,),
     },
     'Door': {  # go to the door; hunting
         0: (3,),
@@ -178,7 +177,6 @@ MOVE_PERF = {  # anamony's move mode
 }
 
 
-
 # ===== game logic - internal variables =====
 
 AI = 0
@@ -192,7 +190,7 @@ pressedKey = ''
 doorClosed = False
 systemPower = 0
 powerOut = False
-
+justLaughed = 0
 
 
 # ===== pin and device config ===== https://wiki.seeedstudio.com/Wio-Terminal-IO-Overview/
@@ -265,7 +263,6 @@ except Exception as e:
 print('Loading fonts...ok')
 
 
-
 # ===== audio =====
 
 VOICE_BACKGROUND = const(0)
@@ -313,7 +310,6 @@ def playBackgroundAudio():
 print('Configuring audio mixer...ok')
 
 
-
 # ===== main screen config =====
 
 display = board.DISPLAY
@@ -336,6 +332,7 @@ ICON_DEFAULT_Y = const(-ROOM_INTERVAL*2)
 
 ROOM_BORDER_COLOR = const(0xFFF5EE)
 ROOM_BORDER_CONTROL_COLOR = const(0x00BFFF)
+ROOM_WINDOW_COLOR = const(0x00BFFF)
 ROOM_SELECTED_COLOR = const(0x708090)
 ROOM_SCAN_CLEAR_COLOR = const(0xAFEEEE)
 ROOM_SCAN_DANGER_COLOR = const(0xFF1493)
@@ -365,7 +362,6 @@ LABEL_TITLE_COLOR = (const(0xF08080), const(0xCD5C5C), const(0xFA8072))
 LABEL_MSG_COLOR = const(0xD3D3D3)
 LABEL_MSG_BOX_COLOR = const(0x3CB371)
 MSG_PAD = const(20)
-
 
 
 # ===== display - main =====
@@ -451,6 +447,13 @@ door = Rect(
             width=round(ROOM_INTERVAL/2),
             height=round(drawRooms[TARGET_ROOM].height*3/4),
             fill=DOOR_OPEN_LABEL_COLOR)
+
+window = Rect(
+            x=drawRooms[TARGET_ROOM].x+round(drawRooms[TARGET_ROOM].width/8),
+            y=drawRooms[TARGET_ROOM].y-round(ROOM_INTERVAL*3/4),
+            width=round(drawRooms[TARGET_ROOM].width*3/4),
+            height=round(ROOM_INTERVAL/2),
+            fill=ROOM_WINDOW_COLOR)
 
 scanBtnLabel = Label(
             font=font_22,
@@ -577,6 +580,7 @@ zapIcon = Triangle(
 zapIcon.fill = None
 
 splashMain.append(door)
+splashMain.append(window)
 splashMain.append(scanBtnLabel)
 splashMain.append(actionBtnLabel)
 splashMain.append(hourLabel)
@@ -620,7 +624,6 @@ def startMainScreen():
     display.root_group = splashMain
 
 
-
 # ===== power out screen =====
 
 powerOutLabel = None
@@ -643,7 +646,6 @@ def startMainScreenPowerOut():
     powerOutLabel.y = round(SCREEN_H/2 - powerOutLabel.height/2)
     splashTitle.append(powerOutLabel)
     display.root_group = splashTitle
-
 
 
 # ===== title screen =====
@@ -768,7 +770,6 @@ def startTitleScreen():
     gc.collect()
 
 
-
 # ===== end title screen =====
 
 def startEndTitleScreen():
@@ -811,7 +812,6 @@ def startEndTitleScreen():
     display.root_group = None
     splashTitle = None
     gc.collect()
-
 
 
 # ===== game logic - countdowns and callbacks =====
@@ -906,8 +906,10 @@ def moveModeChange():
 
 def setLabelsAndColors():
     countdown, _ = getCountdownAndInterval('ScanCooldown')
-    scanBtnLabel.background_color = \
-        SCAN_LABEL_COLOR if (selectedRoom in SCANNABLE_ROOMS or countdown == 0) else DISABLED_LABEL_COLOR
+    if selectedRoom in SCANNABLE_ROOMS:
+        scanBtnLabel.background_color = SCAN_LABEL_COLOR if countdown == 0 else DISABLED_LABEL_COLOR
+    else:
+        scanBtnLabel.background_color = BLACK
     if selectedRoom == TARGET_ROOM:
         actionBtnLabel.text = 'Door'
         actionBtnLabel.background_color = DOOR_CLOSED_LABEL_COLOR if doorClosed else DOOR_OPEN_LABEL_COLOR
@@ -952,7 +954,7 @@ def Hour():
     print(f'Time: {hour} AM, AI level: {AI}/100')
 
 def Move():
-    global anomalyRoom, moveMode, gameStatus
+    global anomalyRoom, moveMode, gameStatus, justLaughed
     if ANOMALY_NOT_MOVING:
         return
     if anomalyRoom == TARGET_ROOM and gameStatus != 'Died':
@@ -966,10 +968,10 @@ def Move():
     if len(ConnectedRooms) == 0:
         return
     newDirection = ConnectedRooms[random.randint(0, len(ConnectedRooms)-1)]
-    if moveMode in ('Normal', 'Door') and anomalyRoom == DOOR_ROOM and newDirection == TARGET_ROOM and doorClosed:
+    if moveMode == 'Door' and anomalyRoom == DOOR_ROOM and newDirection == TARGET_ROOM and doorClosed:
         print(f'{ANOMALY_NAME} is blocked by the security door! (knocking sound heard)')
         playAudio(VOICE_ANOMALY_ACTION, 'knock')
-        setMoveMode(('Air Vent', 'Escape'))
+        setMoveMode(('Normal', 'Air Vent', 'Escape'))
         return
     anomalyRoom = newDirection
     if ANOMALY_ACTION_LOG and anomalyRoom != TARGET_ROOM:
@@ -985,9 +987,11 @@ def Move():
     elif anomalyRoom == AIR_VENT_ROOM:
         playAudio(VOICE_ANOMALY_ACTION, 'airvent')
         print(f'{ANOMALY_NAME} crawling in the air vent heard')
-    elif anomalyRoom in SCANNABLE_ROOMS and moveMode in ('Door', 'Air Vent'):
-        playAudio(VOICE_ANOMALY_LAUGH, f'laugh{random.randint(1, 2)}')
-        print(f'{ANOMALY_NAME} laughing sound heard')
+    if anomalyRoom in SCANNABLE_ROOMS and moveMode in ('Door', 'Air Vent'):
+        if (time.monotonic_ns() - justLaughed) >= 700000000:
+            playAudio(VOICE_ANOMALY_LAUGH, f'laugh{random.randint(1, 2)}')
+            print(f'{ANOMALY_NAME} laughing sound heard')
+            justLaughed = time.monotonic_ns()
 
 def PowerMonitor():
     global systemPower, powerOut, doorClosed
@@ -1106,7 +1110,7 @@ def Scan():
         if detected:
             invokeCallbackAndCountdown('ShowAnomaly')
     elif countdown == maxCountDown-2:
-        if detected and detectionRoom in (WINDOW_ROOM, DOOR_ROOM):
+        if detected:
             playAudio(VOICE_PLAYER_EFFECT_2, 'windowscare')
         playAudio(VOICE_PLAYER_EFFECT, 'scan')
         systemPower += SCAN_POWER_CHANGE_LEVEL
@@ -1269,7 +1273,7 @@ def resetGame():
 print('Loading game logic and runtime...ok')
 firstTimeRunning = True
 gc.collect()
-print(f'Free memory (fully loaded): {gc.mem_free()}')
+print(f'Memory used: {100 - round(gc.mem_free() / mem_limit * 100, 1)}%')
 
 while True:
     
