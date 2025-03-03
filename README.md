@@ -12,7 +12,7 @@ You also hear something about the robot may roam around the empty office after m
 
 You asked the boss, and he said: "Relax, we are testing that thing. Reinforcement learning stuff, nothing to worry about. Just don't let anyone enter the control room. You can lock yourself in if you have to, but under _NO_ circumstances overload the power system!"
 
-As the clock hits 12:00 AM, you started to feel that this may be the longest night of your life - or the shortest one.
+As the clock hits 12:00 AM, alone in the security room, you started to feel that this may be the longest night of your life - or the shortest one.
 
 ### Floor Plan
 
@@ -45,7 +45,7 @@ All rooms but control room and air vent has scanner installed.
 
 ### Rules
 
-- You cannot leave the control room, and the company is locked down anyway. Stay alive until 6:00 AM.
+- You cannot leave the control room nor the company. Stay alive until 6:00 AM. (Each hour is ~1 minute).
 - The control room has a door to lobby, connects the air vent with the server room, and has a mesh window between it and the server room (so you may hear things moving in there if any).
 - The lines in the floor plan indicate passage, in which the robot can move from room to room or the air vent.
 - Use switch buttons to move focus to different rooms. The focused room will be highlighted.
@@ -57,13 +57,14 @@ All rooms but control room and air vent has scanner installed.
 <details>
   <summary>Additional hints</summary>
 
-- If the robot enters the control room, all of the controls will fail, then you die (game over).
-- The robot will get more aggresive to hunt you with each hour passed. (Each hour takes a bit more than 50 seconds.)
-- The Bluetooth speaker distracts the robot - for most of the time.
-- The door keeps the robot out, but keep the door closed will gradually increase power load.
-- The air vent zapper also keeps the robot out. This usually will scare the robot away for a while.
-- If the robot is in hunting mode, it may switch direction to door or air vent if it is "blocked" at another path.
-- The robot will actively hunt you and move even quickly during the power outtage.
+- If `FooBear` enters the control room, all of the controls will fail, then you will die (game over).
+- `FooBear` will get more aggresive to hunt you with each hour passed. (Each hour takes a bit more than 50 seconds.)
+- The Bluetooth speaker distracts `FooBear` - for most of the time.
+- The door keeps `FooBear` out, but keep the door closed will gradually increase power load.
+- The air vent zapper also keeps `FooBear` out. This usually will scare the robot away for a while.
+- If `FooBear` is in hunting mode, it may switch direction to door or air vent if it is "blocked" at another path.
+- `FooBear` will not try to enter the control room when it's not hunting.
+- `FooBear` will more likely to hunt you more actively and move even quickly during the power outtage.
 - If you try to activate an action but it wouldn't work, it's either the action is in cooldown, or...your time is numbered.
 
 </details>
@@ -72,12 +73,15 @@ All rooms but control room and air vent has scanner installed.
   <summary>Even more hints!</summary>
 
 - Cheats and configuration by modifying `code.py`:
-  - Set `ANOMALY_ALWAYS_SHOWN` to `True` to show where the robot is.
+  - Set `ANOMALY_ALWAYS_SHOWN` to `True` to show where `FooBear` is.
   - Set `ANOMALY_ACTION_LOG` to `True` to print game event and action logs in the console.
   - Set `ANOMALY_NOT_MOVING` to `True` to make the robot not moving at all. (You will never fail the game).
   - Set `SKIP_TITLE_ANIMATION` to `True` to skip the title animation after game booting up.
 - Being blocked by the door or zapped in the air vent may cause the robot to "run away" to the farthest corner for a short while.
-- You don't need to scan every room - just the room closest to the door and air vent. And listen to the sound clue.
+- You don't need to scan every room - just the room closest to the door and air vent. And listen to the sound clue:
+  - `FooBear` laughs when it is moving in hunting mode.
+  - You can hear `FooBear` walking when it's in room 4, 5 or 7.
+  - `FooBear` laughs and can be heard of walking sound when it enters the control room...
 
 </details>
 
