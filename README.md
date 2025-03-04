@@ -46,6 +46,7 @@ All rooms but control room and air vent has scanner installed.
 ### Rules
 
 - You cannot leave the control room nor the company. Stay alive until 6:00 AM. (Each hour is ~1 minute).
+- Stop anything enters the control room.
 - The control room has a door to lobby, connects the air vent with the server room, and has a mesh window between it and the server room (so you may hear things moving in there if any).
 - The lines in the floor plan indicate passages, in which anyone can move from room to room.
 - Speaking of which, the air vent is also big enough to crawl through...
@@ -58,14 +59,14 @@ All rooms but control room and air vent has scanner installed.
 <details>
   <summary>Additional hints</summary>
 
-- If `FooBear` enters the control room, all of the controls will fail, then you will die (game over).
-- `FooBear` will get more aggresive to hunt you with each hour passed. (Each hour takes a bit more than 50 seconds.)
 - The Bluetooth speaker distracts `FooBear` - for most of the time.
 - The door keeps `FooBear` out, but keep the door closed will gradually increase power load.
 - The air vent zapper also keeps `FooBear` out. This usually will scare the robot away for a while.
-- If `FooBear` is in hunting mode, it may switch direction to door or air vent if it is "blocked" at another path.
-- `FooBear` will not try to enter the control room when it's not hunting.
-- `FooBear` will more likely to hunt you more actively and move even quickly during the power outtage.
+- `FooBear` will get more aggresive to hunt you with each hour passed.
+- When `FooBear` is in hunting mode, it will try to enter from either the door or the air vent.
+- When `FooBear` is in hunting mode and get blocked at the door or zapped in the air vent, it may run away for a while (more likely when zapped) or change the hunting direction.
+- `FooBear` will not try to enter the control room when it's not hunting (simply roaming).
+- `FooBear` will very likely to hunt you more actively and move more quickly during the power outtage.
 - If you try to activate an action but it wouldn't work, it's either the action is in cooldown, or...your time is numbered.
 
 </details>
@@ -78,11 +79,11 @@ All rooms but control room and air vent has scanner installed.
   - Set `ANOMALY_ACTION_LOG` to `True` to print game event and action logs in the console.
   - Set `ANOMALY_NOT_MOVING` to `True` to make the robot not moving at all. (You will never fail the game).
   - Set `SKIP_TITLE_ANIMATION` to `True` to skip the title animation after game booting up.
-- Being blocked by the door or zapped in the air vent may cause the robot to "run away" to the farthest corner for a short while.
 - You don't need to scan every room - just the room closest to the door and air vent. And listen to the sound clue:
   - `FooBear` laughs when it is moving in hunting mode.
-  - You can hear `FooBear` walking when it's in room 4, 5 or 7.
-  - `FooBear` laughs and can be heard of walking sound when it enters the control room...
+  - You would hear `FooBear` walking when it enters room 4, 5 or 7 (the nearest to the control room).
+  - You would hear clanging sound when `FooBear` crawls into the air vent.
+  - `FooBear` also laughs and can be heard of walking at the same time when it enters the control room...
 
 </details>
 
@@ -135,22 +136,24 @@ And I add a potentiometer between `DAC0` and `TIP` so that the volumn can be red
 
 This FNAF ([_Five Nights at Freddy's_](https://en.wikipedia.org/wiki/Five_Nights_at_Freddy%27s)) fan game was conceived some years ago, with the primary coding completed between 2021 and 2022. The code, more than 1,000 lines long, is built around a complex synchronous process runtime in which I can add behaviors and control them in the ways and intervals I want.
 
-Of course, I had to re-invent the gameplay and rules since it's not possible to recreate all the game mechanics of FNAF 1 or 2; but the inspiron is still there. I also can't help to "borrow" many of the FNAF sound effects (I did considered to use _Half Life_ sound effects). This game utilizes CircuitPython's audiomixer to play multiple audio files (including the background ambience sound) asynchronously, which works surprising well.
+One of eariler concepts was to recreate the "It's a UNIX system, I know this" moment in _Jurassic Park_, where you have to defend yourself against a velociraptor by operating on a text-based system.
+
+Of course, I had to re-invent the gameplay and rules since it's not possible to recreate and include all game mechanics of FNAF 1 or 2; but the inspiron is still there. I also can't help to "borrow" many of the FNAF sound effects (I did considered to use _Half Life_ sound effects instead. From the file names of FNAF sound effects, they are probably not original too). This game utilizes CircuitPython's audiomixer to play multiple audio files at the same time (including the looping background ambience sound) asynchronously, which works surprising well.
 
 ### What It Should Have Been
 
-The original plan was to build a complete, physical model room in front of the Wio Terminal (which is the "tablet" you're using) as the control room - the serve-controlled door actually opens and closes (a blue LED lights up when it is "locked"), and there are 5 RGB LEDs representing the room/scanner/zapper lights. It should feel like you are actually sitting in the control room, and observing things happening around you. All of the LEDs will light up in red when you are dead, and in green when you survived.
+The original plan was to build a "table-top arcade game", with a physical, decorated model room built in front of the Wio Terminal (the "tablet" you're using) as the control room itself. The serve-controlled door on the left actually opens and closes (with a blue LED lights up when it is "locked"), and 5 RGB LEDs representing the room interior/scanner/zapper lights. It should feel like you are actually sitting in the control room, and observe things happening around you. You can see the scanner light shines white or red dependint on the results adjacent to the control room. Finally, all LEDs will light up in red when you are dead, and in green when you survived.
 
-A large translucent "window" is installed in front of the control room to the server room; my plan is to put a Freddy-like silhouette standing behind the window, and install two LEDs in front of it and at the back. When the "anomaly" is in the server room and being "scanned", the back LED lights up in red, and if not, the front LED lights up in white (so you can't see the silhouette). No moving parts required! That was the theory anyway. This game would have to be played in near-blackness so that you won't see the silhouette exposed by external illumination.
+A large translucent "window" is installed at the far end of the control room looking into the server room; my plan was to install a Freddy-like silhouette standing behind the window, and put two LEDs in front of it and at the back. When the "anomaly" is in the server room and being "scanned", the back LED lights up in red, and if not, the front LED lights up in white (so you won't see the silhouette). No moving parts required! That was the theory anyway. This game would have to be played in near-blackness so that you won't see the silhouette exposed by external illumination.
 
-I did made and test all the electronic parts:
+I did connect and test all the electronic parts as a completed system:
 - A SG-90 servo
 - A blue LED
 - 5 NeoPixel modules (1 RGB LED each)
 - One analog joystick module
 - Two push buttons
 
-All of them were powered directly from the Wio Termainl (which is connected to 5V 2A DC input with its USB Type-C cable). 
+All of them were powered directly from the Wio Termainl (which is connected to 5V 2A DC input with its USB Type-C cable). Power them from an external source did not work that well.
 
 But in the end, I just couldn't find enough motivattion and satisfaction to finish it; it's more difficult for me to build, and I found it simply not immersive enough. The game can run completely without all the external devices anyway - the room is just an augmented extension of the game itself - so eventually I decided to leave it as it is.
 
