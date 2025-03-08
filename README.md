@@ -1,4 +1,4 @@
-# Project FooBear: A FNAF Fan Game on CircuitPython and Wio Terminal - with Full Sound Effects!
+# Project FooBear: A FNAF fan game on CircuitPython and Wio Terminal - with full sound effects!
 
 > Photo and video to be added later.
 
