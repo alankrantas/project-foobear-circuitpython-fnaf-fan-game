@@ -89,13 +89,13 @@ All rooms but control room and air vent has scanner installed.
 
 ### Buttons
 
-![btns](https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game/blob/main/WioT_Btns.png)
-
 | Button | Function |
 | --- | --- |
 | Up, down, left, right | Move room focus |
 | C | Scan (if available) |
 | A | Special action (if available) |
+
+![btns](https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game/blob/main/WioT_Btns.png)
 
 ---
 
@@ -124,11 +124,11 @@ Personally I use a 3.5mm TRRS breakout board:
 | Wio Terminal Pin | Wire |
 | --- | --- |
 | 11 (DAC0) | TIP |
-| 9 (GND) | PING1 |
+| 9 (GND) | RING1 (TRRS) or RING2 (TRS) |
 
 ![pinout](https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game/blob/main/WioT-Pinout.jpg)
 
-And I add a potentiometer between `DAC0` and `TIP` so that the volumn can be reduced for earphones.
+I also add a potentiometer between `DAC0` and `TIP` so that the volumn can be reduced for earphones.
 
 ---
 
