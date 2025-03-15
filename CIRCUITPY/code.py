@@ -44,16 +44,16 @@ ANOMALY_NOT_MOVING = False
 SKIP_TITLE_ANIMATION = False
 
 # game parameters (all interval and countdown time values are seconds * 10)
-AI_START_LEVEL = const(5)  # 1-100
-AI_FINAL_LEVEL = const(95)  # 1-100
-HOUR_INTERVAL = const(600)
+AI_START_LEVEL = const(10)  # 1-100
+AI_FINAL_LEVEL = const(90)  # 1-100
+HOUR_INTERVAL = const(400)
 MOVE_INTERVAL = const(40)
-MOVE_MODE_RESET_CHANCE = const(25)
-MOVE_MODE_MORE_ACTIVE_CHANCE = const(50)
-LURED_CHANCE = const(80)
+MOVE_MODE_RESET_CHANCE = const(33)
+MOVE_MODE_MORE_ACTIVE_CHANCE = const(66)
+LURED_CHANCE = const(75)
 SCAN_COOLDOWN = const(15)
 AUDIO_COOLDOWN = const(600)
-ZAP_COOLDOWN = const(160)
+ZAP_COOLDOWN = const(150)
 POWER_LIMIT = const(100)
 DOOR_POWER_CHANGE_LEVEL = const(5)
 SCAN_POWER_CHANGE_LEVEL = const(15)
@@ -1251,13 +1251,18 @@ def resetConfig():
 def resetCountdown():
     for item in countdownTable.values():
         item['countpool'] = item['interval'] if item['mode'] == 'continuous' else 0
+    scanCooldownBar.value = 0
+    audioCooldownBar.value = 0
+    zapCooldownBar.value = 0
+    systemPowerBar.value = 0
 
 def resetRoom():
     global anomalyRoom, selectedRoom
     selectedRoom = TARGET_ROOM
     anomalyRoom = RESET_ROOMS[random.randint(0, len(RESET_ROOMS)-1)]
-    drawRooms[selectedRoom].fill = ROOM_SELECTED_COLOR
     roomLabels[selectedRoom].color = ROOM_LABEL_SELECTED_COLOR
+    for idx in range(len(drawRooms)):
+        drawRooms[idx].fill = ROOM_SELECTED_COLOR if idx == selectedRoom else BLACK
 
 def resetGame():
     resetConfig()
