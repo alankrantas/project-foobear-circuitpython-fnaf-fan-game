@@ -107,7 +107,7 @@ All rooms but control room and air vent has scanner installed.
 
 This game is design for a the [Wio Terminal](https://wiki.seeedstudio.com/Wio-Terminal-Getting-Started/), which is basically a SAMD51 microcontroller (which has DAC pins to play audio) with 512 KB RAM, 4 MB flash, a built-in 320x240 ILI9341 TFT and several buttons.
 
-You may try to migrate this game to other SAMD51 boards with the display and buttons attached, but bear in mind that the code uses ~80% RAM and the text and audio files require ~3.7 MB storage.
+You may try to migrate this game to other SAMD21/51 boards with the display and buttons attached, but bear in mind that the code uses ~80% RAM and the files (main code, driver, fonts and audio) require ~3.7 MB storage.
 
 ### Installation
 
@@ -138,26 +138,24 @@ I also add a potentiometer between `DAC0` and `TIP` so that the volumn can be re
 
 ## About This Project
 
-This FNAF ([_Five Nights at Freddy's_](https://en.wikipedia.org/wiki/Five_Nights_at_Freddy%27s)) fan game was conceived some years ago, with the primary coding completed between 2021 and 2022. The code, more than 1,000 lines long, is built around a complex synchronous process runtime in which I can add behaviors and control them in the ways and intervals I want.
+This FNAF ([_Five Nights at Freddy's_](https://en.wikipedia.org/wiki/Five_Nights_at_Freddy%27s)) fan game was conceived quite a few years ago, with the primary coding completed between 2021 and 2022. The code, more than 1,000 lines long, is built around a complex synchronous process runtime in which I can add behaviors as callback functions and control them in the ways and intervals I want.
 
-One of eariler concepts was to recreate the "It's a UNIX system, I know this" moment in _Jurassic Park_, where you have to defend yourself against a velociraptor by operating on a text-based system.
-
-Of course, I had to re-invent the gameplay and rules since it's not possible to recreate and include all game mechanics of FNAF 1 or 2; but the inspiron is still there. I also can't help to "borrow" many of the FNAF sound effects (I did considered to use _Half Life_ sound effects instead. From the file names of FNAF sound effects, they are probably not original too). This game utilizes CircuitPython's audiomixer to play multiple audio files at the same time (including the looping background ambience sound) asynchronously, which works surprising well.
+Of course, I had to re-invent the gameplay and rules since it's not possible to recreate and include all in-game mechanics of any of the first four FNAF games; but the inspirons are evidant. I also can't help to "borrow" many of the FNAF sound effects (I did considered to use _Half Life_ sound effects instead. And judging from the file names of FNAF sound effects, they are probably not original too). This game utilizes CircuitPython's `audiomixer` module to play multiple audio files asynchronously over the same audio output (including the looping background ambience sound), which works surprising well.
 
 ### What It Should Have Been
 
-The original plan was to build a "table-top arcade game", with a physical, decorated model room built in front of the Wio Terminal (the "tablet" you're using) as the control room itself. The serve-controlled door on the left actually opens and closes (with a blue LED lights up when it is "locked"), and 5 RGB LEDs representing the room interior/scanner/zapper lights. It should feel like you are actually sitting in the control room, and observe things happening around you. You can see the scanner light shines white or red dependint on the results adjacent to the control room. Finally, all LEDs will light up in red when you are dead, and in green when you survived.
+The original plan was to build a "table-top-like mini arcade", with a physical, decorated model room built in front of the Wio Terminal (the "tablet" you're using) as the control room itself. The serve-controlled door on the left actually opens and closes (with a blue LED lights up when it is "locked"), and 5 RGB LEDs representing the room interior/scanner/zapper lights. It should feel like you are actually sitting in the control room, and observe things happening around you. You can see the scanner light shines white or red dependint on the results adjacent to the control room. Finally, all LEDs will light up in red when you are dead, and in green when you survived.
 
 A large translucent "window" is installed at the far end of the control room looking into the server room; my plan was to install a Freddy-like silhouette standing behind the window, and put two LEDs in front of it and at the back. When the "anomaly" is in the server room and being "scanned", the back LED lights up in red, and if not, the front LED lights up in white (so you won't see the silhouette). No moving parts required! That was the theory anyway. This game would have to be played in near-blackness so that you won't see the silhouette exposed by external illumination.
 
 I did connect and test all the electronic parts as a completed system:
 - A SG-90 servo
 - A blue LED
-- 5 NeoPixel modules (1 RGB LED each)
+- 5 NeoPixel modules
 - One analog joystick module
 - Two push buttons
 
-All of them were powered directly from the Wio Termainl (which is connected to 5V 2A DC input with its USB Type-C cable). Power them from an external source did not work that well.
+All of them were powered directly from the Wio Termainl (which is connected to 5V 2A DC input with its USB Type-C cable), although I found it a bit struggling to drive the servo. Power them from an external source did not work that well.
 
 But in the end, I just couldn't find enough motivattion and satisfaction to finish it; it's more difficult for me to build, and I found it simply not immersive enough. The game can run completely without all the external devices anyway - the room is just an augmented extension of the game itself - so eventually I decided to leave it as it is.
 
@@ -190,4 +188,4 @@ CircuitPython
 
 Audio files are from [FNAF 1](https://downloads.khinsider.com/game-soundtracks/album/five-nights-at-freddy-s-fnaf) and [FNAF 2](https://downloads.khinsider.com/game-soundtracks/album/five-nights-at-freddy-s-fnaf-2-sfx) with minor modifications. This project is not intended to be commercialized anyway.
 
-And lastly, thank you, Markiplier; I do not play scary games at all, but I watched all the FNAF videos from the very beginning. It was really fun indeed.
+And lastly, thank you, Markiplier; I do not play scary games at all, but I watched all the FNAF videos from the very beginning. It was fun indeed, especially when you screamed. :p
