@@ -2,7 +2,7 @@
 
 ![project-foobear](https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game/blob/main/project-foobear.JPG)
 
-**Project FooBear** is a mini game inspired by ([_Five Nights at Freddy's_](https://en.wikipedia.org/wiki/Five_Nights_at_Freddy%27s)) series, written in CircuitPython and designed to run on Wio Terminal (a SAMD51 microcontroller with a 320x240 TFT display).
+**Project FooBear** is a mini game inspired by [_Five Nights at Freddy's_](https://en.wikipedia.org/wiki/Five_Nights_at_Freddy%27s) (FNAF) series, written in CircuitPython and designed to run on Wio Terminal (a SAMD51 microcontroller with a 320x240 TFT display).
 
 [Video demo](https://www.youtube.com/watch?v=rDJO8tjkzFg)
 
