@@ -37,7 +37,7 @@ As the clock hits 12:00 AM, alone in the control room with the security monitor,
 | `6` | Restroom |
 | `7` | Lobby |
 | `8` | Control room (where you are; power usage is shown and the security door can be locked) |
-| `9` | Air Vent (has a electric bug zapper installed) |
+| `9` | Air vent (has a electric bug zapper installed) |
 | `b` | Bluetooth speaker |
 | `d` | Security door |
 | `w` | Window |
