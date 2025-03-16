@@ -4,26 +4,26 @@
 
 ## The Story
 
-You are an intern working in a AI startup, which develops a humanoid robot codenamed "Foobear". (Because, you know, "foo" and "bar".)
+You are an intern working in a AI startup, which develops a humanoid robot codenamed "Foobear". (Because, you know, [foobar](https://en.wikipedia.org/wiki/Foobar).)
 
-And one day you are ordered to stay in the company for the night, because apperently the security guy disappeared previous day for no reason. A big demo is scheduled tomorrow, and the company cannot afford to have no one on watch.
+And one day you are ordered to stay in the company for the night, because apperently the security guy disappeared the previous day for no reason. A big demo is scheduled tomorrow, and the company cannot afford to have no one on watch. They voted the rookie should do it.
 
-You also hear something about the robot may roam around the empty office after midnight.
+You also remembered hearing something about the robot may roam around the empty office after midnight.
 
-You asked the boss, and he said: "Relax, we are testing that thing. Reinforcement learning stuff, nothing to worry about. Just don't let anyone enter the control room. You can lock yourself in if you have to, but under _NO_ circumstances overload the power system!"
+You asked the boss about it, who simply said: "Relax, we are testing that thing. Reinforcement learning stuff, nothing to worry about. Just don't let anyone enter the control room. You can lock yourself in if you have to, but under _NO_ circumstances overload the power!"
 
-As the clock hits 12:00 AM, alone in the security room, you started to feel that this may be the longest night of your life - or the shortest one.
+As the clock hits 12:00 AM, alone in the control room with the security monitor, you have a feeling that this may be the longest night of your life - or the shortest one.
 
 ### Floor Plan
 
 ![floor-plan](https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game/blob/main/floor-plan.JPG)
 
 ```
-  0(b)-1----2
-  |    |    |
-  3----4----5--|
-  |    |    w  9(z)
-  6----7--d[8]-|
+0(b)-1----2
+|    |    |
+3----4----5--|
+|    |    w  9(z)
+6----7--d[8]-|
 ```
 
 | Label | Description |
