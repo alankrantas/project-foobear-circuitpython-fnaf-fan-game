@@ -142,6 +142,8 @@ This FNAF ([_Five Nights at Freddy's_](https://en.wikipedia.org/wiki/Five_Nights
 
 Of course, I had to re-invent the gameplay and rules since it's not possible to recreate and include all in-game mechanics of any of the first four FNAF games; but the inspirons are evidant. I also can't help to "borrow" many of the FNAF sound effects (I did considered to use _Half Life_ sound effects instead. And judging from the file names of FNAF sound effects, they are probably not original too). This game utilizes CircuitPython's `audiomixer` module to play multiple audio files asynchronously over the same audio output (including the looping background ambience sound), which works surprising well.
 
+This project uses 4 CircuitPython display-related drivers, 2 sizes of Terminus font files (converted to PCF) and 21 .wav audio files (16-bit mono, 22.5 KHz, trimmed shorter from original files).
+
 ### What It Should Have Been
 
 The original plan was to build a "table-top-like mini arcade", with a physical, decorated model room built in front of the Wio Terminal (the "tablet" you're using) as the control room itself. The serve-controlled door on the left actually opens and closes (with a blue LED lights up when it is "locked"), and 5 RGB LEDs representing the room interior/scanner/zapper lights. It should feel like you are actually sitting in the control room, and observe things happening around you. You can see the scanner light shines white or red dependint on the results adjacent to the control room. Finally, all LEDs will light up in red when you are dead, and in green when you survived.
