@@ -2,7 +2,7 @@
 
 ![project-foobear](https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game/blob/main/project-foobear.JPG)
 
-**Project FooBear** is a mini game inspired by _Five Nights at Freddy's_ (FNAF) series, written in CircuitPython and designed to run on Wio Terminal (a SAMD51 microcontroller with a 320x240 TFT display).
+**Project FooBear** is a mini game inspired by ([_Five Nights at Freddy's_](https://en.wikipedia.org/wiki/Five_Nights_at_Freddy%27s)) series, written in CircuitPython and designed to run on Wio Terminal (a SAMD51 microcontroller with a 320x240 TFT display).
 
 [Video demo](https://www.youtube.com/watch?v=rDJO8tjkzFg)
 
@@ -49,7 +49,7 @@ As the clock hits 12:00 AM, alone in the control room with the security monitor,
 
 All rooms but control room and air vent has scanner installed.
 
-### Rules
+### How to Play
 
 - You cannot leave the control room nor the company. Stay alive until 6:00 AM. (Each "hour" is ~40 seconds).
 - Stop anything enters the control room.
@@ -142,7 +142,7 @@ I also add a potentiometer between `DAC0` and `TIP` so that the volumn can be re
 
 ## About This Project
 
-This FNAF ([_Five Nights at Freddy's_](https://en.wikipedia.org/wiki/Five_Nights_at_Freddy%27s)) fan game was conceived quite a few years ago, with the primary coding completed between 2021 and 2022. The code, more than 1,000 lines long, is built around a complex synchronous process runtime in which I can add behaviors as callback functions and control them in the ways and intervals I want.
+This FNAF fan game was conceived quite a few years ago, with the primary coding completed between 2021 and 2022. The code, more than 1,000 lines long, is built around a complex synchronous process runtime in which I can add behaviors as callback functions and control them in the ways and intervals I want.
 
 Of course, I had to re-invent the gameplay and rules since it's not possible to recreate and include all in-game mechanics of any of the first four FNAF games; but the inspirons are evidant. I also can't help to "borrow" many of the FNAF sound effects (I did considered to use _Half Life_ sound effects instead. And judging from the file names of FNAF sound effects, they are probably not original too). This game utilizes CircuitPython's `audiomixer` module to play multiple audio files asynchronously over the same audio output (including the looping background ambience sound), which works surprising well.
 
