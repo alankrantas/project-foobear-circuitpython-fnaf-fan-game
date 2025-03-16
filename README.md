@@ -4,6 +4,8 @@
 
 **Project FooBear** is a mini game inspired by _Five Nights at Freddy's_ (FNAF) series, written in CircuitPython and designed to run on Wio Terminal (a SAMD51 microcontroller with a 320x240 TFT display).
 
+[Video demo](https://www.youtube.com/watch?v=rDJO8tjkzFg)
+
 ## The Story
 
 You are an intern working in a AI startup, which develops a humanoid robot codenamed "Foobear". (Because, you know, [foobar](https://en.wikipedia.org/wiki/Foobar).)
