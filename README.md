@@ -1,6 +1,6 @@
 # Project FooBear: A FNAF fan game on CircuitPython and Wio Terminal - with full sound effects!
 
-> Photo and video to be added later.
+![project-foobear](https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game/blob/main/project-foobear.JPG)
 
 ## The Story
 
@@ -16,12 +16,14 @@ As the clock hits 12:00 AM, alone in the security room, you started to feel that
 
 ### Floor Plan
 
+![floor-plan](https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game/blob/main/floor-plan.JPG)
+
 ```
-0(b)-1----2
-|    |    |
-3----4----5--|
-|    |    w  9(z)
-6----7--d[8]-|
+  0(b)-1----2
+  |    |    |
+  3----4----5--|
+  |    |    w  9(z)
+  6----7--d[8]-|
 ```
 
 | Label | Description |
@@ -45,7 +47,7 @@ All rooms but control room and air vent has scanner installed.
 
 ### Rules
 
-- You cannot leave the control room nor the company. Stay alive until 6:00 AM. (Each hour is ~1 minute).
+- You cannot leave the control room nor the company. Stay alive until 6:00 AM. (Each "hour" is ~40 seconds).
 - Stop anything enters the control room.
 - The control room has a door to lobby, connects the air vent with the server room, and has a mesh window between it and the server room (so you may hear things moving in there if any).
 - The lines in the floor plan indicate passages, in which anyone can move from room to room.
@@ -57,7 +59,7 @@ All rooms but control room and air vent has scanner installed.
 - The right side of the control room icon shows the current power load. Scan and special actions consume power for recharging. If you cause too much power load at a point, the system will shut down and undergo emergency reboot. You will not to be able to see or do anything in the meantime...
 
 <details>
-  <summary>Additional hints</summary>
+  <summary><b>Additional hints</b></summary>
 
 - The Bluetooth speaker distracts `FooBear` - for most of the time.
 - The door keeps `FooBear` out, but keep the door closed will gradually increase power load.
@@ -72,22 +74,22 @@ All rooms but control room and air vent has scanner installed.
 </details>
 
 <details>
-  <summary>Even more hints!</summary>
+  <summary><b>Even more hints!</b></summary>
 
 - Cheats and configuration by modifying `code.py`:
   - Set `ANOMALY_ALWAYS_SHOWN` to `True` to show where `FooBear` is.
-  - Set `ANOMALY_ACTION_LOG` to `True` to print game event and action logs in the console.
-  - Set `ANOMALY_NOT_MOVING` to `True` to make the robot not moving at all. (You will never fail the game).
+  - Set `ANOMALY_ACTION_LOG` to `True` to print game event and action logs in the console, including how `FooBear` moves and acts.
+  - Set `ANOMALY_NOT_MOVING` to `True` to make the robot not moving at all. (Automatically win).
   - Set `SKIP_TITLE_ANIMATION` to `True` to skip the title animation after game booting up.
 - You don't need to scan every room - just the room closest to the door and air vent. And listen to the sound clue:
   - `FooBear` laughs when it is moving in hunting mode.
-  - You would hear `FooBear` walking when it enters room 4, 5 or 7 (the nearest to the control room).
+  - You would hear `FooBear` walking when it enters room 4, 5 or 7 (the nearest three to the control room).
   - You would hear clanging sound when `FooBear` crawls into the air vent.
   - `FooBear` also laughs and can be heard of walking at the same time when it enters the control room...
 
 </details>
 
-### Buttons
+### Controls
 
 | Button | Function |
 | --- | --- |
@@ -109,15 +111,17 @@ You may try to migrate this game to other SAMD51 boards with the display and but
 
 ### Installation
 
-1. Connect the device to USB port and flash the [CircuitPython 9.x firmware](https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game/blob/main/adafruit-circuitpython-seeeduino_wio_terminal-en_US-9.2.4.uf2) to the device. ([Instruction](https://learn.adafruit.com/welcome-to-circuitpython/installing-circuitpython))
-2. After done, copy everything under `CIRCUITPY` to the `CIRCUITPY` drive representing the device storage.
-3. Press reset again and the game should start loading and running.
+1. Connect the device to USB port and flash the [CircuitPython 9.x firmware](https://github.com/alankrantas/project-foobear-circuitpython-fnaf-fan-game/blob/main/adafruit-circuitpython-seeeduino_wio_terminal-en_US-9.2.4.uf2) to the device ([Instruction](https://learn.adafruit.com/welcome-to-circuitpython/installing-circuitpython)). Newer firmware may work but not tested.
+2. Copy everything under `CIRCUITPY` to the `CIRCUITPY` drive representing the device storage, with `code.py` at the root.
+3. Press reset again/replug the device and the game should start loading and running automatically.
 
 ### Audio Output
 
-**This game can be played without audio - but it will be less fun and harder to play.**
+> **This game can be played without audio - but it will be less fun and harder to play.**
+>
+> Also note that very occasionally the device may stop playing audio with unknown reason. Check the wiring and restart the device should work.
 
-Connect the `DAC0` pin (pin 11 on Wio Terminal) and any `GND` pin (for example, pin 9) to a speaker or 3.5mm jack. Check CircuitPython's [instruction](https://learn.adafruit.com/circuitpython-essentials/circuitpython-audio-out) of how to connect a 3.5mm jack (ignore the button).
+Connect the `DAC0` pin (pin 11 on Wio Terminal) and any `GND` pin (for example, pin 9) to a speaker via 3.5mm jack. Check CircuitPython's [instruction](https://learn.adafruit.com/circuitpython-essentials/circuitpython-audio-out) of how to connect a 3.5mm jack (ignore the button).
 
 Personally I use a 3.5mm TRRS breakout board:
 
