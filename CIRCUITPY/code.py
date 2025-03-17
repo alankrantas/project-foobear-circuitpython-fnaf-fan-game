@@ -1008,12 +1008,13 @@ def PowerMonitor():
     if not powerOut and systemPower == POWER_LIMIT:
         print('Power out!')
         startMainScreenPowerOut()
-        playAudio(VOICE_PLAYER_EFFECT_2, 'door')
+        if doorClosed:
+            playAudio(VOICE_PLAYER_EFFECT_2, 'door')
+            doorClosed = False
         playAudio(VOICE_BACKGROUND, 'powerdown')
         powerOut = True
         systemPower = 0
         systemPowerBar.value = 0
-        doorClosed = False
         if moveMode not in ('Door', 'Air Vent'):
             setMoveMode(('Door', 'Air Vent'))
         invokeCallbackAndCountdown('PowerReboot')
@@ -1292,7 +1293,7 @@ while True:
     startMainScreen()
     
     print('Game started')
-    print(f'Time: {hour} AM, AI level: {AI}')
+    print(f'Time: {hour} AM, AI level: {AI}/100')
     if ANOMALY_ACTION_LOG:
         print(f'{ANOMALY_NAME} starts in {ROOM_NAMES[anomalyRoom]} (mode: {moveMode})')
     
