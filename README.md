@@ -144,7 +144,7 @@ I also add a potentiometer between `DAC0` and `TIP` so that the volumn can be re
 
 This FNAF fan game was conceived quite a few years ago, with the primary coding completed between 2021 and 2022. The code, more than 1,000 lines long, is built around a complex synchronous process runtime in which I can add behaviors as callback functions and control them in the ways and intervals I want.
 
-Of course, I had to re-invent the gameplay and rules since it's not possible to recreate and include all in-game mechanics of any of the first four FNAF games; but the inspirons are evidant. I also can't help to "borrow" many of the FNAF sound effects (I did considered to use _Half Life_ sound effects instead. And judging from the file names of FNAF sound effects, they are probably not original too). This game utilizes CircuitPython's `audiomixer` module to play multiple audio files asynchronously over the same audio output (including the looping background ambience sound), which works surprising well.
+Of course, I had to re-invent the gameplay and rules since it's not possible to recreate all in-game mechanics of any of the first four FNAF games; but the inspirons are evidant. I also can't help to "borrow" many of the FNAF sound effects (I did considered to use _Half Life_ sound effects instead. And judging from the file names of FNAF sound effects, they are probably not original too. This project is not intended to be commercialized anyway). This game utilizes CircuitPython's `audiomixer` module to play multiple audio files asynchronously over the same audio output (including the looping background ambience sound), which works surprising well.
 
 This project uses 4 CircuitPython display-related drivers, 2 sizes of Terminus font files (converted to PCF) and 21 .wav audio files (16-bit mono, 22.5 KHz, trimmed shorter from original files).
 
@@ -169,8 +169,6 @@ But in the end, I just couldn't find enough motivattion and satisfaction to fini
 
 ## References and Resources
 
-CircuitPython
-
 - Firmware/driver:
   - [Seeeduino Wio Terminal (Circuit firmware)](https://circuitpython.org/board/seeeduino_wio_terminal/)
   - [Adafruit CircuitPython Library Bundle](https://github.com/adafruit/Adafruit_CircuitPython_Bundle)
@@ -192,7 +190,4 @@ CircuitPython
   - [audioio](https://docs.circuitpython.org/en/latest/shared-bindings/audioio/index.html)
   - [audiomixer](https://docs.circuitpython.org/en/latest/shared-bindings/audiomixer/index.html)
   - [Convert Sound Files in Audacity](https://learn.adafruit.com/microcontroller-compatible-audio-file-conversion)
-
-Audio files are from [FNAF 1](https://downloads.khinsider.com/game-soundtracks/album/five-nights-at-freddy-s-fnaf) and [FNAF 2](https://downloads.khinsider.com/game-soundtracks/album/five-nights-at-freddy-s-fnaf-2-sfx) with minor modifications. This project is not intended to be commercialized anyway.
-
-And lastly, thank you, Markiplier; I do not play scary games at all, but I watched all the FNAF videos from the very beginning. It was fun indeed, especially when you screamed. :p
+  - Audio files are borrowed from [FNAF 1](https://downloads.khinsider.com/game-soundtracks/album/five-nights-at-freddy-s-fnaf) and [FNAF 2](https://downloads.khinsider.com/game-soundtracks/album/five-nights-at-freddy-s-fnaf-2-sfx) with minor modifications
